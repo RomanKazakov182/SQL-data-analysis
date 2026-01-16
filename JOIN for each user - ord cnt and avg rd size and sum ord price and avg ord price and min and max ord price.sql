@@ -12,8 +12,8 @@ SELECT order_id
 FROM (SELECT order_id
            , unnest(product_ids) as product_id
       FROM orders) as ord
-    LEFT JOIN products
-         using(product_id)
+     LEFT JOIN products
+          using(product_id)
 GROUP BY order_id
 ORDER BY order_id
 )
@@ -35,6 +35,7 @@ FROM (SELECT DISTINCT order_id
 ORDER BY user_id, order_id
 )
      AS us_ords_prods
-     USING(order_id)
+USING(order_id)
 GROUP BY user_id
+
 ORDER BY user_id
